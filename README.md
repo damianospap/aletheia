@@ -33,7 +33,7 @@ No logging in to or scraping Instagram or any platform, no face recognition, no 
 ```bash
 # Option 1: single file (build once, copy anywhere that has Python 3.11+)
 git clone https://github.com/damianospap/aletheia.git
-cd REPO
+cd aletheia
 mkdir -p dist/app && cp -r src/aletheia dist/app/
 python -m zipapp dist/app -m aletheia.cli:main -c -o aletheia.pyz
 python aletheia.pyz doctor
