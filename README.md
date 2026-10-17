@@ -92,5 +92,3 @@ new countries. Greek packs run on accent/sigma-folded text, so write them withou
 * `argparse` usage lines remain English (all other messages are translated).
 
 ## License
-
-To be chosen by the maintainer before publication (Apache-2.0 is recommended for enterprise adoption).
