@@ -1,0 +1,27 @@
+name: unzip-project
+on:
+  push:
+    paths:
+      - "*.zip"
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack the zip into the repository
+        run: |
+          set -e
+          ZIP="$(ls -1 *.zip | head -n 1)"
+          mkdir /tmp/x
+          unzip -q "$ZIP" -d /tmp/x
+          rm -f "$ZIP"
+          rm -rf /tmp/x/*/.github
+          cp -a /tmp/x/*/. .
+          printf '%s\n' '__pycache__/' '*.pyc' 'dist/' 'build/' '*.egg-info/' '*.pyz' 'cases/' > .gitignore
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add Aletheia 0.1.0 source"
+          git push
