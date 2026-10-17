@@ -30,3 +30,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 aletheia = ["locales/*.toml", "packs/*.toml"]
+
+[project.urls]
+Homepage = "https://github.com/damianospap/aletheia"
+Issues = "https://github.com/damianospap/aletheia/issues"
