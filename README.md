@@ -3,7 +3,7 @@
 **Evidence-grade, passive OSINT toolkit for journalists and fraud victims** — English / Ελληνικά.
 Runs on Windows, macOS, Linux and Android (Termux). Python 3.11+, **no third-party dependencies**.
 
-> Greek version: [README.el.md](README.el.md) · Policy: [ACCEPTABLE_USE.md](ACCEPTABLE_USE.md) ·
+> Hellenic version: [README.el.md](README.el.md) · Policy: [ACCEPTABLE_USE.md](ACCEPTABLE_USE.md) ·
 > Security: [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md)
 
 ## What problem does it solve?
