@@ -88,7 +88,7 @@ new countries. Greek packs run on accent/sigma-folded text, so write them withou
 ## Limitations (v0.1)
 
 * No encryption at rest yet — use full-disk encryption. No built-in RFC 3161 timestamping.
-* Tested on Linux; Windows/macOS/Termux are covered by simulation tests and a CI matrix that still has to be run.
+* Tested on Linux and Windows11; macOS/Termux are covered by simulation tests and a CI matrix that still has to be run.
 * Instagram export layout is not a public contract; parsing is tolerant but may need updates.
 * Phone validation is strict only for Greece; BIC/bank lookup for IBANs is intentionally absent.
 * `argparse` usage lines remain English (all other messages are translated).
