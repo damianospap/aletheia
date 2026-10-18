@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,7 +9,8 @@ description = "Evidence-grade, passive OSINT toolkit for journalists and fraud v
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []          # standard library only, by design
-# license: choose before publishing (Apache-2.0 recommended; see README "License")
+# license: license = "Apache-2.0"
+license-files = ["LICENSE"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: Microsoft :: Windows",
