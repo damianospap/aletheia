@@ -101,4 +101,4 @@ python tools/coverage_report.py --show-missing                   # κάλυψη 
 
 ## Άδεια χρήσης
 
-Θα επιλεγεί από τον συντηρητή πριν τη δημοσίευση (προτείνεται η Apache-2.0 για υιοθέτηση από οργανισμούς).
+Apache-2.0 — see [LICENSE](LICENSE)
