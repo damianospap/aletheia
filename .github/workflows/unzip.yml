@@ -1,5 +1,6 @@
 name: unzip-project
 on:
+  workflow_dispatch:
   push:
     paths:
       - "*.zip"
@@ -13,7 +14,11 @@ jobs:
       - name: Unpack the zip into the repository
         run: |
           set -e
-          ZIP="$(ls -1 *.zip | head -n 1)"
+          ZIP="$(ls -1 *.zip 2>/dev/null | head -n 1)"
+          if [ -z "$ZIP" ]; then
+            echo "No zip file found in the repository root."
+            exit 0
+          fi
           mkdir /tmp/x
           unzip -q "$ZIP" -d /tmp/x
           rm -f "$ZIP"
