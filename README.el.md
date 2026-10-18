@@ -34,6 +34,8 @@
 
 ```bash
 # Επιλογή 1: ένα αρχείο (χτίστε το μία φορά, αντιγράψτε το οπουδήποτε υπάρχει Python 3.11+)
+git clone https://github.com/damianospap/aletheia.git
+cd aletheia
 mkdir -p dist/app && cp -r src/aletheia dist/app/
 python -m zipapp dist/app -m aletheia.cli:main -c -o aletheia.pyz
 python aletheia.pyz doctor
