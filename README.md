@@ -3,7 +3,7 @@
 **Evidence-grade, passive OSINT toolkit for journalists and fraud victims** — English / Ελληνικά.
 Runs on Windows, macOS, Linux and Android (Termux). Python 3.11+, **no third-party dependencies**.
 
-> Greek version: [README.el.md](README.el.md) · Policy: [ACCEPTABLE_USE.md](ACCEPTABLE_USE.md) ·
+> Hellenic version: [README.el.md](README.el.md) · Policy: [ACCEPTABLE_USE.md](ACCEPTABLE_USE.md) ·
 > Security: [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md)
 
 ## What problem does it solve?
@@ -32,6 +32,8 @@ No logging in to or scraping Instagram or any platform, no face recognition, no 
 
 ```bash
 # Option 1: single file (build once, copy anywhere that has Python 3.11+)
+git clone https://github.com/damianospap/aletheia.git
+cd aletheia
 mkdir -p dist/app && cp -r src/aletheia dist/app/
 python -m zipapp dist/app -m aletheia.cli:main -c -o aletheia.pyz
 python aletheia.pyz doctor
