@@ -1,0 +1,110 @@
+# Seed list of brands that scammers impersonate, used for look-alike domain detection.
+# This is community-maintained seed data: verify an entry before relying on it, and send a pull
+# request to add or correct brands. "domains" are the OFFICIAL registrable domains.
+
+[stoplist]
+# Domains too common to be useful as a correlation signal between pieces of evidence.
+domains = ["instagram.com", "facebook.com", "google.com", "youtube.com", "wa.me", "whatsapp.com", "t.me",
+           "telegram.org", "x.com", "twitter.com", "tiktok.com", "linkedin.com", "gmail.com", "googlemail.com",
+           "outlook.com", "hotmail.com", "yahoo.com", "icloud.com", "proton.me", "protonmail.com",
+           "apple.com", "microsoft.com", "gov.gr", "wikipedia.org"]
+
+[[brand]]
+name = "Instagram"
+domains = ["instagram.com"]
+
+[[brand]]
+name = "Facebook"
+domains = ["facebook.com"]
+
+[[brand]]
+name = "Meta"
+domains = ["meta.com"]
+
+[[brand]]
+name = "WhatsApp"
+domains = ["whatsapp.com"]
+
+[[brand]]
+name = "Google"
+domains = ["google.com"]
+
+[[brand]]
+name = "Apple"
+domains = ["apple.com"]
+
+[[brand]]
+name = "PayPal"
+domains = ["paypal.com"]
+
+[[brand]]
+name = "Revolut"
+domains = ["revolut.com"]
+
+[[brand]]
+name = "Binance"
+domains = ["binance.com"]
+
+[[brand]]
+name = "Coinbase"
+domains = ["coinbase.com"]
+
+[[brand]]
+name = "Amazon"
+domains = ["amazon.com"]
+
+[[brand]]
+name = "Netflix"
+domains = ["netflix.com"]
+
+[[brand]]
+name = "ELTA (Hellenic Post)"
+domains = ["elta.gr"]
+
+[[brand]]
+name = "ACS Courier"
+domains = ["acscourier.net"]
+
+[[brand]]
+name = "Speedex"
+domains = ["speedex.gr"]
+
+[[brand]]
+name = "Cosmote"
+domains = ["cosmote.gr"]
+
+[[brand]]
+name = "Vodafone Greece"
+domains = ["vodafone.gr"]
+
+[[brand]]
+name = "Nova"
+domains = ["nova.gr"]
+
+[[brand]]
+name = "Eurobank"
+domains = ["eurobank.gr"]
+
+[[brand]]
+name = "Piraeus Bank"
+domains = ["piraeusbank.gr"]
+
+[[brand]]
+name = "National Bank of Greece"
+domains = ["nbg.gr"]
+
+[[brand]]
+name = "Alpha Bank"
+domains = ["alpha.gr"]
+
+[[brand]]
+name = "AADE (Greek tax authority)"
+domains = ["aade.gr"]
+
+[[brand]]
+name = "PPC (DEI)"
+domains = ["dei.gr"]
+
+[[brand]]
+name = "Hellenic Police"
+domains = ["astynomia.gr"]

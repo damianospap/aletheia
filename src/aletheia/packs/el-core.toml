@@ -1,0 +1,97 @@
+# Aletheia triage rule pack: Greek scam-message signals.
+# IMPORTANT: patterns run on *folded* text (lowercase, no tonos, final sigma written as sigma),
+# so write them without accents and with σ instead of ς.
+
+[pack]
+id = "el-core"
+lang = "el"
+version = 1
+description = "Συνηθισμένα σήματα απάτης σε ελληνικά μηνύματα"
+
+[[rule]]
+id = "el.urgency"
+category = "urgency"
+weight = 2
+pattern = '''επειγον\w*|αμεσα|αμεσως|το\s+συντομοτερο|εντος\s+\d{1,2}\s*(?:ωρ\w*|λεπτ\w*)'''
+explain_en = "Pressure to act immediately"
+explain_el = "Πίεση για άμεση ενέργεια"
+
+[[rule]]
+id = "el.account.threat"
+category = "account_threat"
+weight = 3
+pattern = '''λογαριασμ\w*[^.\n]{0,40}(?:αναστ\w+|κλειδ\w+|απενεργοποι\w+|διαγραφ\w+|περιορισ\w+|μπλοκ\w+|παραβι\w+)'''
+explain_en = "Threat that an account will be suspended, locked or deleted"
+explain_el = "Απειλή ότι ένας λογαριασμός θα ανασταλεί, κλειδωθεί ή διαγραφεί"
+
+[[rule]]
+id = "el.credential"
+category = "credential"
+weight = 4
+pattern = '''(?:επιβεβαι\w+|ενημερ\w+|επαληθευ\w+|δωστε|στειλτε|στειλε|δωσε)[^.\n]{0,30}(?:κωδικο\w*|otp|pin|cvv|στοιχεια\s+καρτας|αριθμο\s+καρτας)'''
+explain_en = "Asks for a password, one-time code or card details"
+explain_el = "Ζητά κωδικό πρόσβασης, κωδικό μίας χρήσης ή στοιχεία κάρτας"
+
+[[rule]]
+id = "el.giftcard"
+category = "payment"
+weight = 4
+pattern = '''δωροκαρτ\w+|gift\s*cards?|paysafe'''
+explain_en = "Mentions gift or prepaid cards, a common untraceable payment method in scams"
+explain_el = "Αναφέρει δωροκάρτες ή προπληρωμένες κάρτες, συνήθη δύσκολα ανιχνεύσιμη μέθοδο πληρωμής σε απάτες"
+
+[[rule]]
+id = "el.crypto"
+category = "payment"
+weight = 3
+pattern = '''(?:bitcoin|btc|usdt|crypto\w*|κρυπτο\w*)[^.\n]{0,60}(?:στειλ\w+|μεταφορ\w+|καταθε\w+|επενδυ\w+|πληρωμ\w+|πορτοφολι\w*)'''
+explain_en = "Asks for a payment, deposit or investment in cryptocurrency"
+explain_el = "Ζητά πληρωμή, κατάθεση ή επένδυση σε κρυπτονομίσματα"
+
+[[rule]]
+id = "el.fee.advance"
+category = "advance_fee"
+weight = 3
+pattern = '''(?:τελη|εξοδα|χρεωση|παραβολο)\s+(?:αποστολης|τελωνει\w+|διεκπεραιωσ\w+|ενεργοποιησ\w+|παραδοσης)'''
+explain_en = "Asks for an upfront fee before delivering something"
+explain_el = "Ζητά προκαταβολικό τέλος πριν την παράδοση κάποιου αγαθού"
+
+[[rule]]
+id = "el.prize"
+category = "prize"
+weight = 3
+pattern = '''κερδισατε|κληρωση\w*|συγχαρητηρια[^.\n]{0,40}(?:νικητ\w+|δωρο|βραβει\w+)|διαγωνισμ\w+[^.\n]{0,30}νικητ\w+'''
+explain_en = "Claims you won a prize or giveaway"
+explain_el = "Ισχυρίζεται ότι κερδίσατε βραβείο ή κλήρωση"
+
+[[rule]]
+id = "el.offplatform"
+category = "off_platform"
+weight = 2
+pattern = '''(?:whatsapp|viber|telegram)[^.\n]{0,40}(?:μηνυμα|στειλε|στειλτε|προσθεσ\w+|επικοινων\w+|γραψε|γραψτε)'''
+explain_en = "Tries to move the conversation to a private messaging app"
+explain_el = "Προσπαθεί να μεταφέρει τη συζήτηση σε ιδιωτική εφαρμογή μηνυμάτων"
+
+[[rule]]
+id = "el.invest"
+category = "investment"
+weight = 4
+pattern = '''(?:εγγυημεν\w+|χωρις\s+ρισκο)\s+(?:αποδοσ\w+|κερδ\w+|εσοδ\w+)|διπλασι\w+\s+(?:τα\s+)?(?:χρημ\w+|επενδυσ\w+)'''
+explain_en = "Promises guaranteed or risk-free returns"
+explain_el = "Υπόσχεται εγγυημένες ή χωρίς ρίσκο αποδόσεις"
+
+[[rule]]
+id = "el.brand.delivery"
+category = "impersonation"
+weight = 1
+pattern = '''(?:ελτα|acs|speedex|γενικη\s+ταχυδρομικη|cosmote|vodafone|nova|τραπεζα\s+\w+)[^.\n]{0,60}(?:δεμα|αποστολη|λογαριασμο|πληρωμη|συνδεσμο|link|χρεωση)'''
+explain_en = "Names a courier, telecom or bank together with a parcel/payment/link prompt (a common phishing pattern)"
+explain_el = "Αναφέρει courier, τηλεπικοινωνιακό πάροχο ή τράπεζα μαζί με δέμα/πληρωμή/σύνδεσμο (συνηθισμένο μοτίβο ηλεκτρονικού ψαρέματος)"
+
+[[rule]]
+id = "el.secrecy"
+category = "secrecy"
+weight = 2
+pattern = '''(?:μην|να\s+μην)\s+(?:πεις|πειτε|ενημερωσ\w+|μοιραστ\w+)[^.\n]{0,30}(?:κανεναν|τραπεζα|οικογενεια)|(?:κρατησε|κρατηστε)\s+το\s+μυστικο'''
+explain_en = "Asks you to keep it secret from family or your bank"
+explain_el = "Ζητά να το κρατήσετε μυστικό από την οικογένεια ή την τράπεζά σας"

@@ -1,0 +1,105 @@
+# Aletheia triage rule pack: English scam-message signals.
+# These are *signals* with explanations, not verdicts. Patterns are case-insensitive regular
+# expressions. Keep them simple: no nested quantifiers (the loader rejects them).
+
+[pack]
+id = "en-core"
+lang = "en"
+version = 1
+description = "Common English scam-message signals"
+
+[[rule]]
+id = "urgency.deadline"
+category = "urgency"
+weight = 2
+pattern = '''\b(?:act|reply|respond|pay|send|confirm|verify)\s+(?:now|immediately|asap|today|urgently)\b|\bwithin\s+(?:the\s+next\s+)?\d{1,2}\s*(?:hours?|hrs?|minutes?|mins?)\b|\burgent(?:ly)?\b'''
+explain_en = "Pressure to act immediately"
+explain_el = "Πίεση για άμεση ενέργεια"
+
+[[rule]]
+id = "account.threat"
+category = "account_threat"
+weight = 3
+pattern = '''\b(?:account|profile|page)\b[^.\n]{0,40}\b(?:suspend\w*|locked|disabled|deleted|banned|restricted|violat\w+)\b'''
+explain_en = "Threat that an account will be suspended, locked or deleted"
+explain_el = "Απειλή ότι ένας λογαριασμός θα ανασταλεί, κλειδωθεί ή διαγραφεί"
+
+[[rule]]
+id = "credential.request"
+category = "credential"
+weight = 4
+pattern = '''\b(?:verify|confirm|update|re-?enter)\b[^.\n]{0,30}\b(?:password|passcode|otp|one[- ]time|security code|login details|credentials|card (?:number|details)|cvv|pin)\b|\b(?:send|share|tell|give)\s+(?:me\s+)?(?:the\s+|your\s+)?(?:6[- ]digit\s+)?(?:code|otp)\b'''
+explain_en = "Asks for a password, one-time code or card details"
+explain_el = "Ζητά κωδικό πρόσβασης, κωδικό μίας χρήσης ή στοιχεία κάρτας"
+
+[[rule]]
+id = "payment.giftcard"
+category = "payment"
+weight = 4
+pattern = '''\b(?:gift\s*cards?|itunes\s+cards?|google\s+play\s+cards?|steam\s+cards?|prepaid\s+cards?|paysafe(?:card)?)\b'''
+explain_en = "Mentions gift or prepaid cards, a common untraceable payment method in scams"
+explain_el = "Αναφέρει δωροκάρτες ή προπληρωμένες κάρτες, συνήθη δύσκολα ανιχνεύσιμη μέθοδο πληρωμής σε απάτες"
+
+[[rule]]
+id = "payment.crypto"
+category = "payment"
+weight = 3
+pattern = '''\b(?:bitcoin|btc|usdt|tether|ethereum|crypto(?:currency)?|binance|trust\s*wallet)\b[^.\n]{0,60}\b(?:send|transfer|deposit|invest\w*|pay\w*|wallet)\b'''
+explain_en = "Asks for a payment, deposit or investment in cryptocurrency"
+explain_el = "Ζητά πληρωμή, κατάθεση ή επένδυση σε κρυπτονομίσματα"
+
+[[rule]]
+id = "fee.advance"
+category = "advance_fee"
+weight = 3
+pattern = '''\b(?:processing|release|customs|clearance|delivery|admin(?:istration)?|activation|insurance)\s+fees?\b'''
+explain_en = "Asks for an upfront fee before delivering something"
+explain_el = "Ζητά προκαταβολικό τέλος πριν την παράδοση κάποιου αγαθού"
+
+[[rule]]
+id = "prize.claim"
+category = "prize"
+weight = 3
+pattern = '''\byou(?:'ve|\s+have)?\s+won\b|\bcongratulations\b[^.\n]{0,40}\b(?:winner|prize|selected|reward)\b|\bclaim\s+your\s+(?:prize|reward|gift)\b|\bgiveaway\b[^.\n]{0,30}\bwinner\b'''
+explain_en = "Claims you won a prize or giveaway"
+explain_el = "Ισχυρίζεται ότι κερδίσατε βραβείο ή κλήρωση"
+
+[[rule]]
+id = "offplatform.move"
+category = "off_platform"
+weight = 2
+pattern = '''\b(?:whatsapp|telegram|signal)\b[^.\n]{0,40}\b(?:message|text|add|contact|chat|reach|me)\b|\b(?:move|continue|talk|chat)\b[^.\n]{0,20}\b(?:on|to)\s+(?:whatsapp|telegram)\b'''
+explain_en = "Tries to move the conversation to a private messaging app"
+explain_el = "Προσπαθεί να μεταφέρει τη συζήτηση σε ιδιωτική εφαρμογή μηνυμάτων"
+
+[[rule]]
+id = "invest.guaranteed"
+category = "investment"
+weight = 4
+pattern = '''\b(?:guaranteed|risk[- ]free)\s+(?:returns?|profits?|income)\b|\bdouble\s+your\s+(?:money|investment)\b|\bdaily\s+(?:profit|returns?)\b'''
+explain_en = "Promises guaranteed or risk-free returns"
+explain_el = "Υπόσχεται εγγυημένες ή χωρίς ρίσκο αποδόσεις"
+
+[[rule]]
+id = "impersonation.platform"
+category = "impersonation"
+weight = 2
+pattern = '''\b(?:instagram|meta|facebook)\s+(?:support|security|team|copyright|verification|help\s*center)\b|\b(?:blue|verification)\s*(?:tick|badge)\b[^.\n]{0,40}\b(?:fee|pay|buy|purchase|apply)\b'''
+explain_en = "Poses as platform support or sells a verification badge"
+explain_el = "Παριστάνει την υποστήριξη πλατφόρμας ή πουλά σήμα επαλήθευσης"
+
+[[rule]]
+id = "romance.trope"
+category = "romance"
+weight = 1
+pattern = '''\bmy\s+late\s+(?:husband|wife)\b|\bi(?:'m|\s+am)\s+(?:deployed|stationed|working\s+offshore|on\s+an\s+oil\s+rig)\b'''
+explain_en = "Backstory commonly used to explain why a person cannot meet"
+explain_el = "Ιστορικό που χρησιμοποιείται συχνά για να δικαιολογήσει ότι το πρόσωπο δεν μπορεί να συναντηθεί"
+
+[[rule]]
+id = "secrecy.request"
+category = "secrecy"
+weight = 2
+pattern = '''\b(?:do\s+not|don't|dont)\s+(?:tell|share\s+this\s+with|inform)\s+(?:anyone|your\s+(?:bank|family))\b|\bkeep\s+(?:this|it)\s+(?:secret|confidential)\b'''
+explain_en = "Asks you to keep it secret from family or your bank"
+explain_el = "Ζητά να το κρατήσετε μυστικό από την οικογένεια ή την τράπεζά σας"
